@@ -9,12 +9,24 @@ on:
     - cron: '0 9 * * 1'
 
 jobs:
+  audit:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew tap rustls/ci --custom-remote .
+      - run: brew audit --online --strict rustls/ci/curl
+
   test:
     runs-on: macos-latest
     steps:
-      - run: brew install --verbose ./Formula/c/curl.rb
-      - run: brew test ./Formula/c/curl.rb
+      - uses: actions/checkout@v4
+      - run: brew tap rustls/ci --custom-remote .
+      - run: brew reinstall --verbose rustls/ci/curl
+      - run: brew test rustls/ci/curl
+
   style:
     runs-on: macos-latest
     steps:
-      - run: brew style ./Formula/c/curl.rb
+      - uses: actions/checkout@v4
+      - run: brew tap rustls/ci --custom-remote .
+      - run: brew style rustls/ci/curl
