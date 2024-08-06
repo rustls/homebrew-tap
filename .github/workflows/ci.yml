@@ -1,0 +1,20 @@
+name: Homebrew
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 9 * * 1'
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - run: brew install --verbose ./Formula/c/curl.rb
+      - run: brew test ./Formula/c/curl.rb
+  style:
+    runs-on: macos-latest
+    steps:
+      - run: brew style ./Formula/c/curl.rb
