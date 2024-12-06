@@ -13,6 +13,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - run: brew tap rustls/ci --custom-remote .
       - run: brew audit --online --strict rustls/ci/curl
 
@@ -20,6 +22,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - run: brew tap rustls/ci --custom-remote .
       - run: brew reinstall --verbose rustls/ci/curl
       - run: brew test rustls/ci/curl
@@ -28,5 +32,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - run: brew tap rustls/ci --custom-remote .
       - run: brew style rustls/ci/curl
