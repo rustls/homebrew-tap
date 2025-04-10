@@ -85,7 +85,7 @@ class Curl < Formula
     filename.verify_checksum stable.checksum
 
     system libexec/"mk-ca-bundle.pl", "test.pem"
-    assert_predicate testpath/"test.pem", :exist?
-    assert_predicate testpath/"certdata.txt", :exist?
+    assert_path_exists testpath/"test.pem"
+    assert_path_exists testpath/"certdata.txt"
   end
 end
