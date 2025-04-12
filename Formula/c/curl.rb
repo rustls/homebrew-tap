@@ -36,6 +36,13 @@ class Curl < Formula
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
+  # TODO(XXX): remove once upstream fix is in a release.
+  # https://github.com/curl/curl/pull/16995
+  patch do
+    url "https://github.com/curl/curl/commit/eeed87f0563d3ca73ff53813418d1f9f03c81fe5.patch?full_index=1"
+    sha256 "f7461a8042ca8ef86492338458ccd79ee286d17773487513928d7ed6ae25818c"
+  end
+
   def install
     tag_name = "curl-#{version.to_s.tr(".", "_")}"
     if build.stable? && stable.mirrors.grep(/github\.com/).first.exclude?(tag_name)
