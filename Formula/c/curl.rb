@@ -2,10 +2,10 @@ class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server (with rustls)"
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
-  url "https://curl.se/download/curl-8.13.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_13_0/curl-8.13.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.13.0.tar.bz2"
-  sha256 "e0d20499260760f9865cb6308928223f4e5128910310c025112f592a168e1473"
+  url "https://curl.se/download/curl-8.14.0.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_14_0/curl-8.14.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.14.0.tar.bz2"
+  sha256 "efa1403c5ac4490c8d50fc0cabe97710abb1bf2a456e375a56d960b20a1cba80"
   license "curl"
 
   livecheck do
@@ -35,13 +35,6 @@ class Curl < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "zlib"
-
-  # TODO(XXX): remove once upstream fix is in a release.
-  # https://github.com/curl/curl/pull/16995
-  patch do
-    url "https://github.com/curl/curl/commit/eeed87f0563d3ca73ff53813418d1f9f03c81fe5.patch?full_index=1"
-    sha256 "f7461a8042ca8ef86492338458ccd79ee286d17773487513928d7ed6ae25818c"
-  end
 
   def install
     tag_name = "curl-#{version.to_s.tr(".", "_")}"
