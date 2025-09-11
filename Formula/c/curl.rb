@@ -2,10 +2,10 @@ class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server (with rustls)"
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
-  url "https://curl.se/download/curl-8.15.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_15_0/curl-8.15.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.15.0.tar.bz2"
-  sha256 "699a6d2192322792c88088576cff5fe188452e6ea71e82ca74409f07ecc62563"
+  url "https://curl.se/download/curl-8.16.0.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_16_0/curl-8.16.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.16.0.tar.bz2"
+  sha256 "9459180ab4933b30d0778ddd71c91fe2911fab731c46e59b3f4c8385b1596c91"
   license "curl"
 
   livecheck do
