@@ -68,7 +68,7 @@ class Curl < Formula
     args << if OS.mac?
       "--with-gssapi"
     else
-      "--with-gssapi=#{Formula["krb5"].opt_prefix}"
+      "--with-gssapi=#{formula_opt_prefix("krb5")}"
     end
 
     system "./configure", *args
